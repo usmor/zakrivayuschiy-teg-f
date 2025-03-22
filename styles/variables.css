@@ -1,1 +1,27 @@
-/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --black: #000;
+  --white: #fff;
+  --red: #F00;
+  --main-font: 'Inter-Variable';
+  --accent-font: 'PressStart2P';
+  --main-font-weight: 400;
+  --title-font-weight: 700;
+  --main-background-image: 
+                          repeating-linear-gradient(90deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px), 
+                          repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px), 
+                          linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+  --main-background-color: var(--white, #fff);
+  --main-color: var(--black, #000);
+  --section-background-color: var(--white, #fff);
+  --section-width: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
+  --stroke-text-color: var(--white, #fff);
+  --box-shadow-color: var(--black, #000);
+  --border-color: var(--black, #000);
+  --hover-bg-color: var(--black, #000);
+  --button-text-color: var(--white, #fff);
+  --like-contour-color: var(--black, #000);
+  --like-sparks-color: var(--red, #F00);
+  --like-core-color: var(--white, #fff);
+  --like-hover-color: var(--black, #000);
+  --like-active-color: var(--red, #F00);
+}
