@@ -9,3 +9,93 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+
+@keyframes heart-scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes sparks-flash {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.heart {
+  transform-origin: center;
+}
+
+.core {
+  fill: transparent;
+  transition: fill 0.3s ease 0.03s;
+}
+
+.like-icon:hover .core {
+  fill: var(--like-hover-color);
+  transition: fill 0.3s ease;
+}
+
+.like-icon:active .core {
+  fill: var(--like-active-color);
+  transition: fill 0.3s ease;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s ease;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--like-hover-color);
+  transition: fill 0.3s ease 0.05s;
+}
+
+.like-icon:active .main-body {
+  fill: var(--like-active-color);
+  transition: fill 0.3s ease 0.05s;
+}
+
+.contour {
+  fill: var(--like-contour-color);
+  transition: fill 0.1s linear;
+}
+
+.sparks {
+  opacity: 0;
+  fill: var(--like-sparks-color);
+}
+
+.like-icon.is-liked .core {
+  fill: var(--like-active-color);
+  transition: fill 0.3s ease;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--like-active-color);
+  transition: fill 0.3s ease 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--like-active-color);
+  transition: fill 0.3s ease 0.06s;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s ease-in;
+  animation-delay: 0.1s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-flash 0.3s ease-in;
+  animation-delay: 0.3s;
+}

@@ -10,54 +10,27 @@
 
 */
 
-@keyframes heart-scale {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.25);
-  }
-}
-
-@keyframes sparks-flash {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-
 .page {
   font-family: var(--main-font), sans-serif;
-  background-color: var(--main-background-color);
-  background-image: var(--main-background-image);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  background:  var(--main-background-image) var(--main-background-color) no-repeat center / cover fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: 'wght' var(--main-font-weight);
+  font-variation-settings: 'wght' var(--main-font-weight, 400);
 }
 
 .header__card {
   justify-self: center;
-  width: var(--section-width);
+  width: var(--section-width, clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem));
   max-width: 100%;
   margin-block: 100px;
   border: 2px solid var(--border-color);
   padding-inline: clamp(0.875rem, -1.4688rem + 10vw, 7.53125rem);
   padding-block: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   background-color: var(--section-background-color);
 }
 
-.logo {
+.logo-card {
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -67,7 +40,7 @@
   width: fit-content;
 }
 
-.title {
+.logo {
   margin-block-end: 20px;
   font-weight: 400;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
@@ -76,7 +49,7 @@
   text-align: center;
 }
 
-.subtitle {
+.title {
   font-weight: 400;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-style: normal;
@@ -96,7 +69,7 @@
 
 .section__card {
   justify-self: center;
-  width: var(--section-width);
+  width: var(--section-width, clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem));
   max-width: 100%;
   border: 2px solid var(--border-color);
   padding-block-end: 26px;
@@ -109,7 +82,7 @@
   font-size: 18px;
   font-style: normal;
   line-height: 22px;
-  font-variation-settings: 'wght' var(--title-font-weight);
+  font-variation-settings: 'wght' var(--title-font-weight, 700);
 }
 
 .section__card-illustration {
@@ -162,7 +135,7 @@
   display: block;
   opacity: 0.5;
   color: var(--main-color);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-weight: 400;
   font-size: 14px;
   font-style: normal;
@@ -190,7 +163,7 @@
   margin: 25px;
 }
 
-.section__card-article p {
+.article__paragraph {
   padding: 0;
   font-size: 18px;
   font-style: normal;
@@ -204,6 +177,33 @@
   gap: 4px;
   max-height: 39px;
   margin-inline-end: 25px;
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  padding: 0;
+  background-color: transparent;
+  transition: border 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--border-color);
+  outline: none;
+}
+
+.like-icon {
+  block-size: 36px;
+  inline-size: 39px;
+}
+
+.card__like-button {
+  display: block;
+  min-width: 130px;
+  padding: 9px 17px;
 }
 
 .button {
@@ -234,7 +234,7 @@
   border: none;
   padding: 0;
   color: var(--button-text-color);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-weight: 400;
   font-size: 14px;
   line-height: 13px;
@@ -255,102 +255,6 @@
   outline: none;
 }
 
-.card__icon-button {
-  border: 2px solid transparent;
-  padding: 0;
-  background-color: transparent;
-  transition: border 0.3s ease;
-}
-
-.card__icon-button:focus {
-  outline: none;
-}
-
-.card__icon-button:focus-visible {
-  border: 2px solid var(--border-color);
-  outline: none;
-}
-
-.like-icon {
-  block-size: 36px;
-  inline-size: 39px;
-}
-
-.heart {
-  transform-origin: center;
-}
-
-.core {
-  fill: transparent;
-  transition: fill 0.3s ease 0.03s;
-}
-
-.like-icon:hover .core {
-  fill: var(--like-hover-color);
-  transition: fill 0.3s ease;
-}
-
-.like-icon:active .core {
-  fill: var(--like-active-color);
-  transition: fill 0.3s ease;
-}
-
-.main-body {
-  fill: transparent;
-  transition: fill 0.3s ease;
-}
-
-.like-icon:hover .main-body {
-  fill: var(--like-hover-color);
-  transition: fill 0.3s ease 0.05s;
-}
-
-.like-icon:active .main-body {
-  fill: var(--like-active-color);
-  transition: fill 0.3s ease 0.05s;
-}
-
-.contour {
-  fill: var(--like-contour-color);
-  transition: fill 0.1s linear;
-}
-
-.sparks {
-  opacity: 0;
-  fill: var(--like-sparks-color);
-}
-
-.like-icon.is-liked .core {
-  fill: var(--like-active-color);
-  transition: fill 0.3s ease;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--like-active-color);
-  transition: fill 0.3s ease 0.05s;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--like-active-color);
-  transition: fill 0.3s ease 0.06s;
-}
-
-.like-icon.is-liked .heart {
-  animation: heart-scale 0.3s ease-in;
-  animation-delay: 0.1s;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks-flash 0.3s ease-in;
-  animation-delay: 0.3s;
-}
-
-.card__like-button {
-  display: block;
-  min-width: 130px;
-  padding: 9px 17px;
-}
-
 .save__button {
   display: flex;
   align-items: center;
@@ -369,10 +273,7 @@
 }
 
 .dialog__save {
-  position: fixed;
-  inset: 0;
   min-width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
-  max-height: 191px;
   border: 2px solid var(--border-color);
   background-color: var(--section-background-color);
 }
@@ -381,7 +282,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 30px;
+  padding: 28px 30px;
 }
 
 .dialog__save::backdrop {
@@ -396,22 +297,24 @@
   gap: 20px;
 }
 
-.dialog__content-label {
-  font-family: var(--accent-font);
-  font-weight: 400;
-  font-size: 14px;
-  font-style: normal;
-  line-height: 150%;
-  text-transform: uppercase;
-}
-
 .dialog__content .floppy-icon {
   fill: var(--main-color);
   inline-size: 39px;
   block-size: 39px;
 }
 
+.dialog__content-label {
+  max-width: clamp(12.375rem, 11.5827rem + 3.3803vw, 14.625rem);
+  font-family: var(--accent-font), fantasy;
+  font-weight: 400;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 150%;
+  text-transform: uppercase;;
+}
+
 .dialog__button-close {
+  width: 100%;
   max-height: 38px;
   padding-block: 9px;
 }
